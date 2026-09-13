@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Space42 API Security" verbose="1">
+  <test name="DummyJSON assessment"><classes>
+    <class name="com.space42.tests.AuthenticationTests"/>
+    <class name="com.space42.tests.SecurityMatrixTests"/>
+  </classes></test>
+</suite>

@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="17" passed="10" failed="7" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[GET /users/filter -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/login -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/login -> 400]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/refresh -> 403]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 401]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 401]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/refresh -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/filter -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/login -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/17/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[OWN-01-own-read | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/login -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/18/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[OWN-02-cross-user-read | actor=userA | target=userB | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/17/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[PUT /todos/134 -> 200]]>
+    </line>
+    <line>
+      <![CDATA[OWN-03-own-update | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/18/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[PUT /todos/49 -> 200]]>
+    </line>
+    <line>
+      <![CDATA[OWN-04-cross-user-update | actor=userA | target=userB | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/filter -> 200]]>
+    </line>
+    <line>
+      <![CDATA[POST /auth/login -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /auth/me -> 200]]>
+    </line>
+    <line>
+      <![CDATA[GET /users -> 200]]>
+    </line>
+    <line>
+      <![CDATA[RBAC-01-admin-directory | actor=admin | target=none | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+    </line>
+    <line>
+      <![CDATA[GET /users -> 200]]>
+    </line>
+    <line>
+      <![CDATA[RBAC-02-user-directory | actor=userA | target=none | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/17/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[SEC-01-anonymous-todos | actor=none | target=userA | auth=NONE | oracle=PRODUCTION_POLICY | expected=401 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/17/todos -> 200]]>
+    </line>
+    <line>
+      <![CDATA[SEC-02-invalid-token-todos | actor=none | target=userA | auth=INVALID | oracle=PRODUCTION_POLICY | expected=401 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+    </line>
+    <line>
+      <![CDATA[GET /users/17 -> 200]]>
+    </line>
+    <line>
+      <![CDATA[SEC-03-profile-field-exposure | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+    </line>
+    <line>
+      <![CDATA[SEC-03-profile-field-exposure | exposed field=bank]]>
+    </line>
+    <line>
+      <![CDATA[SEC-03-profile-field-exposure | exposed field=password]]>
+    </line>
+    <line>
+      <![CDATA[SEC-03-profile-field-exposure | exposed field=crypto]]>
+    </line>
+    <line>
+      <![CDATA[SEC-03-profile-field-exposure | exposed field=ssn]]>
+    </line>
+    <line>
+      <![CDATA[GET /todos/2147483647 -> 404]]>
+    </line>
+    <line>
+      <![CDATA[NEG-01-missing-todo | actor=none | target=none | auth=NONE | oracle=CONTRACT | expected=404 | actual=404 | STATUS_MATCH]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2026-09-13T16:23:32 GST" name="Space42 API Security" finished-at="2026-09-13T16:23:53 GST" duration-ms="20459">
+    <groups>
+    </groups>
+    <test started-at="2026-09-13T16:23:32 GST" name="DummyJSON assessment" finished-at="2026-09-13T16:23:53 GST" duration-ms="20459">
+      <class name="com.space42.tests.AuthenticationTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:32 GST" name="setup" finished-at="2026-09-13T16:23:32 GST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="currentUserMatchesToken()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:32 GST" name="currentUserMatchesToken" finished-at="2026-09-13T16:23:36 GST" duration-ms="3752" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/filter -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[POST /auth/login -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- currentUserMatchesToken -->
+        <test-method signature="invalidCredentialsAreRejected()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:36 GST" name="invalidCredentialsAreRejected" finished-at="2026-09-13T16:23:36 GST" duration-ms="511" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[POST /auth/login -> 400]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- invalidCredentialsAreRejected -->
+        <test-method signature="invalidRefreshTokenIsRejected()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:36 GST" name="invalidRefreshTokenIsRejected" finished-at="2026-09-13T16:23:37 GST" duration-ms="705" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [401] but found [403]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [401] but found [403]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.AuthenticationTests.invalidRefreshTokenIsRejected(AuthenticationTests.java:36)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[POST /auth/refresh -> 403]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- invalidRefreshTokenIsRejected -->
+        <test-method signature="malformedTokenIsRejected()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:37 GST" name="malformedTokenIsRejected" finished-at="2026-09-13T16:23:38 GST" duration-ms="441" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[GET /auth/me -> 401]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- malformedTokenIsRejected -->
+        <test-method signature="missingTokenIsRejected()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:38 GST" name="missingTokenIsRejected" finished-at="2026-09-13T16:23:38 GST" duration-ms="374" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[GET /auth/me -> 401]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- missingTokenIsRejected -->
+        <test-method signature="refreshedTokenRetainsIdentity()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:38 GST" name="refreshedTokenRetainsIdentity" finished-at="2026-09-13T16:23:40 GST" duration-ms="1696" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[POST /auth/refresh -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- refreshedTokenRetainsIdentity -->
+        <test-method signature="validLoginEstablishesIdentity()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:40 GST" name="validLoginEstablishesIdentity" finished-at="2026-09-13T16:23:40 GST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validLoginEstablishesIdentity -->
+        <test-method is-config="true" signature="cleanup()[pri:0, instance:com.space42.tests.AuthenticationTests@9225652]" started-at="2026-09-13T16:23:40 GST" name="cleanup" finished-at="2026-09-13T16:23:40 GST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- com.space42.tests.AuthenticationTests -->
+      <class name="com.space42.tests.SecurityMatrixTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:40 GST" name="setup" finished-at="2026-09-13T16:23:40 GST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:40 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:43 GST" duration-ms="3493" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[OWN-01-own-read]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/filter -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[POST /auth/login -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /users/17/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[OWN-01-own-read | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:43 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:45 GST" duration-ms="1444" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[OWN-02-cross-user-read]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [403] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [403] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:47)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[POST /auth/login -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /users/18/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[OWN-02-cross-user-read | actor=userA | target=userB | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:45 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:45 GST" duration-ms="798" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[OWN-03-own-update]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/17/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[PUT /todos/134 -> 200]]>
+            </line>
+            <line>
+              <![CDATA[OWN-03-own-update | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:45 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:46 GST" duration-ms="891" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[OWN-04-cross-user-update]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [403] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [403] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:47)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/18/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[PUT /todos/49 -> 200]]>
+            </line>
+            <line>
+              <![CDATA[OWN-04-cross-user-update | actor=userA | target=userB | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:46 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:50 GST" duration-ms="3282" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[RBAC-01-admin-directory]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/filter -> 200]]>
+            </line>
+            <line>
+              <![CDATA[POST /auth/login -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /auth/me -> 200]]>
+            </line>
+            <line>
+              <![CDATA[GET /users -> 200]]>
+            </line>
+            <line>
+              <![CDATA[RBAC-01-admin-directory | actor=admin | target=none | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:50 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:50 GST" duration-ms="621" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[RBAC-02-user-directory]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [403] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [403] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:47)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users -> 200]]>
+            </line>
+            <line>
+              <![CDATA[RBAC-02-user-directory | actor=userA | target=none | auth=VALID | oracle=PRODUCTION_POLICY | expected=403 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:50 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:51 GST" duration-ms="653" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SEC-01-anonymous-todos]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [401] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [401] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:47)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/17/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[SEC-01-anonymous-todos | actor=none | target=userA | auth=NONE | oracle=PRODUCTION_POLICY | expected=401 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:51 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:51 GST" duration-ms="399" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SEC-02-invalid-token-todos]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[HTTP status expected [401] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: HTTP status expected [401] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1431)
+at org.testng.Assert.assertEquals(Assert.java:1395)
+at com.space42.utils.Checks.status(Checks.java:7)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:47)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/17/todos -> 200]]>
+            </line>
+            <line>
+              <![CDATA[SEC-02-invalid-token-todos | actor=none | target=userA | auth=INVALID | oracle=PRODUCTION_POLICY | expected=401 | actual=200 | SECURITY_HYPOTHESIS_GAP]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:51 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:52 GST" duration-ms="648" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SEC-03-profile-field-exposure]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[SECURITY_HYPOTHESIS_GAP: sensitive fields present; see field names in report expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: SECURITY_HYPOTHESIS_GAP: sensitive fields present; see field names in report expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.space42.tests.SecurityMatrixTests.securityPolicy(SecurityMatrixTests.java:75)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[GET /users/17 -> 200]]>
+            </line>
+            <line>
+              <![CDATA[SEC-03-profile-field-exposure | actor=userA | target=userA | auth=VALID | oracle=PRODUCTION_POLICY | expected=200 | actual=200 | STATUS_MATCH]]>
+            </line>
+            <line>
+              <![CDATA[SEC-03-profile-field-exposure | exposed field=bank]]>
+            </line>
+            <line>
+              <![CDATA[SEC-03-profile-field-exposure | exposed field=password]]>
+            </line>
+            <line>
+              <![CDATA[SEC-03-profile-field-exposure | exposed field=crypto]]>
+            </line>
+            <line>
+              <![CDATA[SEC-03-profile-field-exposure | exposed field=ssn]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method signature="securityPolicy(com.space42.models.SecurityScenario)[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:52 GST" name="securityPolicy" data-provider="securityMatrix" finished-at="2026-09-13T16:23:53 GST" duration-ms="700" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[NEG-01-missing-todo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[GET /todos/2147483647 -> 404]]>
+            </line>
+            <line>
+              <![CDATA[NEG-01-missing-todo | actor=none | target=none | auth=NONE | oracle=CONTRACT | expected=404 | actual=404 | STATUS_MATCH]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- securityPolicy -->
+        <test-method is-config="true" signature="cleanup()[pri:0, instance:com.space42.tests.SecurityMatrixTests@9353778]" started-at="2026-09-13T16:23:53 GST" name="cleanup" finished-at="2026-09-13T16:23:53 GST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- com.space42.tests.SecurityMatrixTests -->
+    </test> <!-- DummyJSON assessment -->
+  </suite> <!-- Space42 API Security -->
+</testng-results>

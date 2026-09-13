@@ -1,0 +1,126 @@
+[
+  {
+    "id": "OWN-01-own-read",
+    "actor": "userA",
+    "target": "userA",
+    "method": "GET",
+    "endpoint": "/users/{targetId}/todos",
+    "authContext": "VALID",
+    "expectedStatus": 200,
+    "check": "ownership",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "OWN-02-cross-user-read",
+    "actor": "userA",
+    "target": "userB",
+    "method": "GET",
+    "endpoint": "/users/{targetId}/todos",
+    "authContext": "VALID",
+    "expectedStatus": 403,
+    "check": "error",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "OWN-03-own-update",
+    "actor": "userA",
+    "target": "userA",
+    "method": "PUT",
+    "endpoint": "/todos/{todoId}",
+    "authContext": "VALID",
+    "expectedStatus": 200,
+    "check": "update",
+    "oracle": "PRODUCTION_POLICY",
+    "body": {
+      "completed": true
+    }
+  },
+  {
+    "id": "OWN-04-cross-user-update",
+    "actor": "userA",
+    "target": "userB",
+    "method": "PUT",
+    "endpoint": "/todos/{todoId}",
+    "authContext": "VALID",
+    "expectedStatus": 403,
+    "check": "error",
+    "oracle": "PRODUCTION_POLICY",
+    "body": {
+      "completed": true
+    }
+  },
+  {
+    "id": "RBAC-01-admin-directory",
+    "actor": "admin",
+    "target": "none",
+    "method": "GET",
+    "endpoint": "/users?limit=5&select=id,role",
+    "authContext": "VALID",
+    "expectedStatus": 200,
+    "check": "directory",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "RBAC-02-user-directory",
+    "actor": "userA",
+    "target": "none",
+    "method": "GET",
+    "endpoint": "/users?limit=5&select=id,role",
+    "authContext": "VALID",
+    "expectedStatus": 403,
+    "check": "error",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "SEC-01-anonymous-todos",
+    "actor": "none",
+    "target": "userA",
+    "method": "GET",
+    "endpoint": "/users/{targetId}/todos",
+    "authContext": "NONE",
+    "expectedStatus": 401,
+    "check": "error",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "SEC-02-invalid-token-todos",
+    "actor": "none",
+    "target": "userA",
+    "method": "GET",
+    "endpoint": "/users/{targetId}/todos",
+    "authContext": "INVALID",
+    "expectedStatus": 401,
+    "check": "error",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "SEC-03-profile-field-exposure",
+    "actor": "userA",
+    "target": "userA",
+    "method": "GET",
+    "endpoint": "/users/{targetId}",
+    "authContext": "VALID",
+    "expectedStatus": 200,
+    "check": "noSensitiveFields",
+    "oracle": "PRODUCTION_POLICY",
+    "body": null
+  },
+  {
+    "id": "NEG-01-missing-todo",
+    "actor": "none",
+    "target": "none",
+    "method": "GET",
+    "endpoint": "/todos/2147483647",
+    "authContext": "NONE",
+    "expectedStatus": 404,
+    "check": "error",
+    "oracle": "CONTRACT",
+    "body": null
+  }
+]
